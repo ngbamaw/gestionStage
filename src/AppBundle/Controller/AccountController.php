@@ -219,7 +219,8 @@ class AccountController extends Controller
             $form->isSubmitted() &&
             $etudiantHandler->isValidForUpdate($form->getErrors())
         ) {
-            $etudiantHandler->valideEtudiant($etudiant);
+            
+            $dao->valideEtudiant($etudiant->getId());
             return $this->redirectToRoute('homepage');
         }
         // replace this example code with whatever you need

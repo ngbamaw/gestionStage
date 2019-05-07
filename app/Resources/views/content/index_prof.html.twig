@@ -59,8 +59,8 @@
             						    {% if internship.date_fin < date %}
             						    Pas de stage
             						    {% else %}
-            						    	<a href="professeur/info_stage_conv?id={{student.id}}" class="uk-link-muted">   
-                						    {% if internship.convention =='0' %}
+            						    	<a href="professeur/info_stage_conv?id={{internship.id}}" class="uk-link-muted">   
+                						    {% if internship.convention !='1' %}
                 						    	Convention à faire
                 						    {% else %}
                 						    	Convention faite	

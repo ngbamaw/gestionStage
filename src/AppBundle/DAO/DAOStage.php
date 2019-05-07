@@ -3,6 +3,7 @@ namespace AppBundle\DAO;
 
 use AppBundle\DAO\iDAO;
 use AppBundle\Model\Stage;
+use \PDO;
 
 class DAOStage implements iDAO{
     private $co;
@@ -19,7 +20,7 @@ class DAOStage implements iDAO{
     public function create($object) {
         $done = FALSE;
         try {
-            $req='INSERT INTO internship(id, id_Company, id_Student, date_debut, date_fin, convention) 
+            $req='INSERT INTO Internship(id, id_Company, id_Student, date_debut, date_fin, convention) 
                   VALUES (null, :id_Company, :id_Student, :date_debut, :date_fin, :convention)';
             $statement = $this->co->prepare($req);
             $params = array(
@@ -50,6 +51,7 @@ class DAOStage implements iDAO{
         $statement->execute(array(':id' => $id));
         $obj = $statement->fetch(PDO::FETCH_OBJ);
         $res = new Stage(
+            $obj->id,
             $obj->id_Company,
             $obj->id_Student,
             $obj->date_debut,
@@ -72,7 +74,7 @@ class DAOStage implements iDAO{
         $req='SELECT id,id_Company,id_Student,date_debut,date_fin, convention FROM Internship ';
         $statement = $this->co->prepare($req);
         $statement->execute();
-        while($obj = $statement->fetch(\PDO::FETCH_OBJ)){
+        while($obj = $statement->fetch(PDO::FETCH_OBJ)){
             $res[] = new Stage(
                 $obj->id,
                 $obj->id_Company,

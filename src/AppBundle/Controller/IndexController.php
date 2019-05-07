@@ -92,7 +92,6 @@ class IndexController extends Controller
 
         $rows_options = $dao_opt->readAll();
 
-
         return $this->render('content/index_eleve.html.twig', [
             'companies' => $rows_companies,
             'options' => $rows_options,

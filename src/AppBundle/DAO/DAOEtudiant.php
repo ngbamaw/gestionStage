@@ -222,8 +222,10 @@ class DAOEtudiant implements iDAO{
                 ':birthdate' => $object->getBirthdate(),
                 ':id' => $object->getId()
             );
+
             $statement->execute($params);
             $done = TRUE;
+            dump($done);die;
         } catch (PDOException $e) {
             echo "Erreur durant la mise à jour d'un Etudiant: " . $e->getMessage();
         }

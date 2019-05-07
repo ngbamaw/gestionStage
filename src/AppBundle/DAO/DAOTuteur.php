@@ -104,7 +104,7 @@ class DAOTuteur implements iDAO{
             $req='SELECT id,lastname,firstname,mail,phone_number,id_Company,function FROM Internship_Tutor';
             $rows = $this->connect->query($req);
             while($obj = $rows->fetch(PDO::FETCH_OBJ)){
-                $res[] = new Tuteur(
+                $res = new Tuteur(
                     $obj->id,
                     $obj->lastname,
                     $obj->firstname,
@@ -124,11 +124,11 @@ class DAOTuteur implements iDAO{
     public function readbyCompany($id){
         $res = [];
         try {
-            $req='SELECT * FROM Internship_Tutor INNER JOIN Company ON Company.id=Internship_Tutor.id_company WHERE Internship_Tutor.id_Company=:id';
+            $req='SELECT * FROM Internship_Tutor INNER JOIN Company ON Company.id=Internship_Tutor.id_company WHERE Internship_Tutor.id_Company=:id LIMIT 1';
             $statement = $this->connect->prepare($req);
             $statement->execute(array(':id' => $id));
             while ($obj = $statement->fetch(PDO::FETCH_OBJ)) {
-                $res[] = new Tuteur(
+                $res = new Tuteur(
                     $obj->id,
                     $obj->lastname,
                     $obj->firstname,

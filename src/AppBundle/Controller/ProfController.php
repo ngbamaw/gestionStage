@@ -127,15 +127,16 @@ class ProfController extends Controller
     {
 
         $id = $security->getUser()->getId();
-        $id_student = $_GET['id'];
+        $id_internship = $_GET['id'];
 
         $daotuteur = new DAOTuteur();
         $daoetudiant = new DAOEtudiant();
         $daocompany = new DAOCompany();
-
-        $tuteur = $daotuteur->readbyCompany($id);
-        $etu = $daoetudiant->read($id_student);
-        $enterprise = $daocompany->read($id);
+        $daostage = new DAOStage();
+        $stage = $daostage->read($id_internship);
+        $etu = $daoetudiant->read($stage->getId_Student());
+        $enterprise = $daocompany->read($stage->getId_Company());
+        $tuteur = $daotuteur->readbyCompany(($enterprise->getId()));
 
         return $this->render('info_stage_conv.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,

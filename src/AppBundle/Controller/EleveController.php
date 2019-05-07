@@ -228,7 +228,7 @@ class EleveController extends Controller
 
 
         $dao_stage->create($stage);
-        return new Response("<html><body>$date_debut</body></html>");// a remplacer par une redirection
+        return $this->redirectToRoute('homepage_eleve');// a remplacer par une redirection
 
     }
     
