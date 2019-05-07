@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr" style="background-color: #606060;">
+<head>
+<meta charset="UTF-8">
+<title>Acceuil | Gestion Stages</title>
+<link rel="stylesheet" type="text/css"
+	href="{{asset ('css/uikit.min.css')}}" />
+</head>
+<body>
+	<nav class="uk-navbar-container uk-margin" uk-navbar>
+		<div class="uk-navbar-left">
+			<!--                <img class="uk-width-expand" src="assets/pictures/logo.jpg">-->
+			<a class="uk-navbar-item uk-logo" href="#">Logo</a>
+			<ul class="uk-navbar-nav">
+				<li class="uk-active"><a href="#"> <span
+						class="uk-icon uk-margin-small-right" uk-icon="icon: home"></span>
+						Accueil
+				</a></li>
+				<li><a href="#"> <span
+						class="uk-icon uk-margin-small-right" uk-icon="icon: mail"></span>
+						Contact
+				</a></li>
+				<li><a href="#"> <span
+						class="uk-icon uk-margin-small-right" uk-icon="icon: file-edit"></span>
+						Conventions
+				</a></li>
+				<li><a href="#"> <span
+						class="uk-icon uk-margin-small-right" uk-icon="icon: users"></span>
+						Eleves
+				</a></li>
+			</ul>
+		</div>
+		<div class="uk-navbar-right">
+			<ul class="uk-navbar-nav">
+				<li><a href="#" class="uk-padding"><span
+						uk-icon="icon: user"></span><span class="uk-padding-small">Albert</span></a>
+					<div class="uk-navbar-dropdown">
+						<ul class="uk-nav uk-navbar-dropdown-nav">
+							<li><a href="#"><span uk-icon="icon: cog"
+									class="uk-padding-small"></span>Paramètres</a></li>
+							<li><a href="#"><span uk-icon="icon: sign-out"
+									class="uk-padding-small"></span>Déconnexion</a></li>
+						</ul>
+					</div></li>
+			</ul>
+		</div>
+	</nav>
+	<main class="uk-container">
+	<div class="uk-grid-item-match uk-child-width-expand@s" uk-grid>
+		<form class="uk-width-1-3 uk-padding uk-background-secondary uk-light">
+			<fieldset class="uk-fieldset">
+				<legend class="uk-legend">
+					<span class="uk-margin-small-right" uk-icon="icon: search"></span>Rechercher
+				</legend>
+				<div class="uk-margin">
+					<label class="uk-form-label" for="form-label-name">Promotions:
+					</label> <select id="form-label-name" class="uk-select">
+						<option>2015-2017</option>
+						<option>2016-2018</option>
+						<option>2017-2019</option>
+						<option>2018-2020</option>
+						<option>2019-2021</option>
+					</select>
+				</div>
+				<hr>
+				<div class="uk-margin">
+					<label class="uk-form-label" for="form-label-name">Stages
+						par option: </label> <select id="form-label-name" class="uk-select">
+						<option>Tout</option>
+						<option>sans-stage</option>
+						<option>en attente</option>
+						<option>Accepté</option>
+					</select>
+				</div>
+				<div class="uk-margin">
+					<button class="uk-button uk-button-default" type="button"
+						name="button">Rechercher</button>
+				</div>
+			</fieldset>
+		</form>
+		<form class="uk-width-2-3 uk-padding uk-background-muted">
+			<fieldset class="uk-fieldset">
+				<legend class="uk-legend">
+					<span class="uk-margin-small-right" uk-icon="icon: grid"></span>Liste
+					des stages
+				</legend>
+				<div class="uk-margin">
+					<ul class="uk-subnav uk-subnav-pill" uk-switcher>
+						<li><a href="#">SLAM</a></li>
+						<li><a href="#">SISR</a></li>
+					</ul>
+					<ul class="uk-switcher uk-margin">
+						<div class="uk-margin">
+							<ul class="uk-list uk-list-divider">
+								<li><a href="#" class="uk-link-muted"><span
+										class="uk-text-success">■</span> Développeur web à Croustiland
+										- SLAM - 1ere année</a></li>
+								<li><a href="#" class="uk-link-muted"><span
+										class="uk-text-warning">■</span> Touriste au Futuroscope -
+										SLAM - 2eme année</a></li>
+								<li><a href="#" class="uk-link-muted"><span
+										class="uk-text-warning">■</span> Développeur JAVA EE à
+										Monréal-enterprise - SLAM - 1ere année</a></li>
+							</ul>
+						</div>
+						<div class="uk-margin">
+							<ul class="uk-list uk-list-divider">
+								<li><a href="#" class="uk-link-muted"><span
+										class="uk-text-success">■</span> Développeur PHP / Symfony à
+										McDo - SISR - 2eme année</a></li>
+								<li><a href="#" class="uk-link-muted"><span
+										class="uk-text-warning">■</span> Visiteur au parc Disney -
+										SISR - 1ere année</a></li>
+							</ul>
+						</div>
+					</ul>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	</main>
+	<script src="assets/js/jquery-3.1.0.min.js"></script>
+	<script src="assets/js/uikit.min.js"></script>
+	<script src="assets/js/uikit-icons.min.js"></script>
+</body>
+</html>

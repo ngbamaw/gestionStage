@@ -1,0 +1,68 @@
+{% extends 'template_loader.html.twig' %}
+{% block title %}
+    Connexion | Gestion Stages
+{% endblock %}
+{% block body_class %}
+    uk-margin-large
+{% endblock %}
+{% block body %}
+    <header class="uk-container uk-margin-large-top uk-text-center">
+        <h1>Authentification</h1>
+    </header>
+    <nav></nav>
+    <main class="uk-height-1-1">
+        {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+        <div class="uk-margin-medium-top uk-align-center" style="width: 250px;">
+            <form id="foljt-login-form" method="post" action="{{ path('connexion') }}"
+                  enctype="application/x-www-form-urlencoded"
+                  class="uk-text-center uk-padding-small">
+                {% if app.request.query.get("error") == 1  %}
+                    <div class="uk-alert-danger" uk-alert>L'email ou le mot de passe est incorrect</div>
+                {% endif %}
+                <div class="uk-margin">
+                    <div class="uk-inline">
+                        <span class="uk-form-icon"
+                              uk-icon="icon: user"></span>
+                        <input
+                                class="uk-input"
+                                placeholder="Adresse mail"
+                                type="text"
+                                value="{{ last_username }}"
+                                name="_username">
+                    </div>
+                </div>
+
+                <div class="uk-margin">
+                    <div class="uk-inline">
+                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                        <input
+                                class="uk-input"
+                                placeholder="Mot de passe"
+                                type="password"
+                                value=""
+                                name="_password">
+                    </div>
+                </div>
+                <input type="hidden" name="_target_path" value="{{ path('homepage') }}"/>
+                <div class="uk-margin">
+                    <button type="submit"
+                            class="uk-width-1-1 uk-button uk-button-primary uk-button-large">Connexion
+                    </button>
+                </div>
+                <div class="uk-text-small">
+                    <a id="forgot-password"
+                       class="uk-float-right uk-link uk-link-muted"
+                       href="#">Mot de passe oublié ?
+                    </a>
+                    <br>
+                    <a id="new-account"
+                       class="uk-float-right uk-link uk-link-muted"
+                       href="/inscription">S'inscrire
+                    </a>
+                </div>
+            </form>
+        </div>
+    </main>
+{% endblock %}

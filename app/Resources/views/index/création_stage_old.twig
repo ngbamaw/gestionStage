@@ -1,0 +1,130 @@
+<!-- Promotion , Option sont modifiable par un professeur ou un admin , le reste est modifiable par eleves, professeur et admin -->
+<!DOCTYPE html>
+<html lang="fr" style="background-color: #606060;">
+<head>
+<meta charset="UTF-8">
+<title>Création de stage | Eleves</title>
+<link rel="stylesheet" type="text/css"
+	href="{{asset ('css/uikit.min.css')}}" />
+</head>
+<body>
+	<nav class="uk-navbar-container uk-margin" uk-navbar>
+		<div class="uk-navbar-left">
+			<!--                <img class="uk-width-expand" src="assets/pictures/logo.jpg">-->
+			<a class="uk-navbar-item uk-logo" href="#">Logo</a>
+			<ul class="uk-navbar-nav">
+				<li class="uk-active"><a href="#"> <span
+						class="uk-icon uk-margin-small-right" uk-icon="icon: home"></span>
+						Accueil
+				</a></li>
+				<li><a href="#"> <span
+						class="uk-icon uk-margin-small-right" uk-icon="icon: mail"></span>
+						Contact
+				</a></li>
+			</ul>
+		</div>
+		<div class="uk-navbar-right">
+			<ul class="uk-navbar-nav">
+				<li><a href="#" class="uk-padding"><span
+						uk-icon="icon: user"></span><span class="uk-padding-small">Albert</span></a>
+					<div class="uk-navbar-dropdown">
+						<ul class="uk-nav uk-navbar-dropdown-nav">
+							<li><a href="#"><span uk-icon="icon: cog"
+									class="uk-padding-small"></span>Paramètres</a></li>
+							<li><a href="#"><span uk-icon="icon: sign-out"
+									class="uk-padding-small"></span>Déconnexion</a></li>
+						</ul>
+					</div></li>
+			</ul>
+		</div>
+	</nav>
+	<main class="uk-container">
+	<div class="uk-grid-item-match uk-child-width-expand@s" uk-grid>
+		<form class="uk-width-2-3 uk-padding uk-background-muted">
+			<fieldset class="uk-fieldset">
+				<legend class="uk-legend">
+					<span class="uk-margin-small-right" uk-icon="icon: grid"></span>Création
+					de Stage
+				</legend>
+				
+						<li>
+							<label class="uk-form-label" for="form-label-name">Information personnel : </label>
+						</li>
+						<li>
+							<label class="uk-form-label" for="form-label-name">Nom : </label>
+                        	<input class="uk-input" name="textarea_nom" rows="1" cols="10" style="min-width: 35%; max-width: 35% ;line-height: 38px; max-height:40px;min-height:40px"value="{{ liste_eleve.lastname }}" >
+                        	<label class="uk-form-label" for="form-label-name">Prenom : </label>
+                        	<input class="uk-input" name="textarea_prenom" rows="1" cols="10" style="min-width: 35%; max-width: 35% ;line-height: 38px; max-height:40px;min-height:40px"value="{{ liste_eleve.firstname }}" >
+                        </li>
+						<li>
+						<label></label>
+							<label class="uk-form-label" for="form-label-name">Option : </label>
+                        	<input class="uk-input" name="textarea_nom" rows="1" cols="10" style="min-width: 35%; max-width: 35% ;line-height: 38px; max-height:40px;min-height:40px"value="{{ liste_eleve.wording }}"; >
+                        	<label class="uk-form-label" for="form-label-name">Promotion : </label>
+                        	<input class="uk-input" name="textarea_nom" rows="1" cols="10" style="min-width: 35%; max-width: 35%  ;line-height: 38px; max-height:40px;min-height:40px"value="{{ liste_eleve.year }} - {{ liste_eleve.year + 2}}"; >
+                      	</li>
+					<hr>
+					<div class="uk-margin">
+						<button class="uk-button uk-button-default" type="button"
+							name="button">Créer une entreprise</button>
+					</div>
+                        
+							<li>
+								<label class="uk-form-label" for="form-label-name"style="color: #333">Entreprise :</label>
+								<select id="form-label-name" name="option" class="uk-select">
+                        				{% for name in companies %}
+                        					<option>{{name.name}}</option>
+                        				{% endfor %}
+                        		</select>
+							</li>
+							<li>
+								<label class="uk-form-label" for="form-label-name">Telephone :</label>
+								<input class="uk-input" name="textarea_nom" rows="1" cols="10" style="min-width: 25% ;max-width: 25%;line-height: 38px; max-height:40px;min-height:40px"value="";>
+								<label class="uk-form-label" for="form-label-name" style="color:#333">Adresse postal : </label>
+                             	<input class="uk-input" name="textarea_nom" rows="1" cols="10" style="min-width: 25% ;max-width: 25%;line-height: 38px; max-height:40px;min-height:40px"value="";>
+                            </li>
+							<li>
+                              <label class="uk-form-label" for="form-label-name">Code postal : </label>
+                              <input class="uk-input" name="textarea_nom" rows="1" cols="10" style="min-width: 25% ;max-width: 25%;line-height: 38px; max-height:40px;min-height:40px"value="";>
+                              <label class="uk-form-label" for="form-label-name">Ville : </label>
+                              <input class="uk-input" name="textarea_nom" rows="1" cols="10" style="min-width: 25% ;max-width: 25%;line-height: 38px; max-height:40px;min-height:40px"value="";>
+                            </li>
+						
+					<hr>
+					<div class="uk-margin">
+						<button class="uk-button uk-button-default" type="button"
+							name="button">Créer un tuteur</button>
+					</div>
+    					<li>
+    						<label class="uk-form-label" for="form-label-name"style="color: #333">Tuteur :</label>
+    					</li>
+							<li>
+								<label class="uk-form-label" for="form-label-name">Nom : </label>
+                        		<input class="uk-input" name="textarea_nom" rows="1" cols="10" style="min-width: 35%; max-width: 35% ;line-height: 38px; max-height:40px;min-height:40px"value="{{ liste_eleve.lastname }}" >
+                        		<label class="uk-form-label" for="form-label-name">Prenom : </label>
+                        		<input class="uk-input" name="textarea_prenom" rows="1" cols="10" style="min-width: 35%; max-width: 35% ;line-height: 38px; max-height:40px;min-height:40px"value="{{ liste_eleve.firstname }}" >
+                        	</li>
+                        	<li>
+                        		<label class="uk-form-label" for="form-label-name">Telephone :</label>
+								<input class="uk-input" name="textarea_nom" rows="1" cols="10" style="min-width: 25% ;max-width: 25%;line-height: 38px; max-height:40px;min-height:40px"value="";>
+								<label class="uk-form-label" for="form-label-name" style="color:#333">Fonction : </label>
+                             	<input class="uk-input" name="textarea_nom" rows="1" cols="10" style="min-width: 25% ;max-width: 35%;line-height: 38px; max-height:40px;min-height:40px"value="Developpeur";>
+                            </li>
+							<li>
+								<label class="uk-form-label" for="form-label-name">Adresse mail : </label>
+                        		<input class="uk-input" name="textarea_prenom" rows="1" cols="10" style="min-width: 35%; max-width: 35% ;line-height: 38px; max-height:40px;min-height:40px"value="jojo@mail.fr" >
+                        	</li>
+					<div class="uk-margin">
+						<button class="uk-button uk-button-default" type="button"
+							name="button">Créer un stage</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	</main>
+	<script src="{{asset ('js/jquery-3.1.0.min.js')}}"></script>
+	<script src="{{asset ('js/uikit.min.js')}}"></script>
+	<script src="{{asset ('js/uikit-icons.min.js')}}"></script>
+</body>
+</html>

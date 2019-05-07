@@ -1,0 +1,48 @@
+{% extends 'container/index.html.twig' %}
+{% block search %}
+	<form method="get" action="/eleve">
+		<div class="uk-margin">
+        <input class="uk-input" type="text" name="search" placeholder="Entrez votre recherche.">
+    </div>
+    <hr>
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-label-name">Rechercher par ville: </label>
+        <select id="form-label-name" name="ville" class="uk-select">
+					{% for ville in villes %}
+						<option>{{ville}}</option>
+					{% endfor %}
+        </select>
+    </div>
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-label-name">Rechercher par catégorie: </label>
+				  <select id="form-label-name" name="option" class="uk-select">
+						{% for opt in options %}
+							<option>{{opt.wording}}</option>
+						{% endfor %}>
+        </select>
+    </div>
+    <div class="uk-margin">
+      <button class="uk-button uk-button-default" type="submit">Rechercher</button>
+    </div>
+	</form>
+{% endblock %}
+{% block content %}
+    <legend class="uk-legend"><span class="uk-margin-small-right" uk-icon="icon: grid"></span>Liste des entreprises</legend>
+    <div class="uk-margin uk-overflow-auto">
+      <ul class="uk-list uk-list-divider">
+     
+      {% if companies is not null %}
+      
+	  	{% for company in companies%}
+	  	     {% if company is not defined or company is null %}
+      			<br> Aucune entreprise trouv�e </br>
+            {% else %}
+				<li><a href="/eleve/info_entreprise?id={{company.id}}">{{company.name}}</a></li>
+			 {% endif %}	
+		 {% endfor %}
+      {% endif %}
+				
+
+      </ul>
+    </div>
+{% endblock %}

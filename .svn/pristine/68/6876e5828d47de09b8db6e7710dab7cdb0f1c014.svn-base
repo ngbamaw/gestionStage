@@ -1,0 +1,122 @@
+<!-- Promotion , Option sont modifiable par un professeur ou un admin , le reste est modifiable par eleves, professeur et admin -->
+<!DOCTYPE html>
+<html lang="fr" style="background-color: #606060;">
+<head>
+<meta charset="UTF-8">
+<title>Paramètres | Eleves</title>
+<link rel="stylesheet" type="text/css"
+	href="{{asset ('css/uikit.min.css')}}" />
+</head>
+<body>
+	<nav class="uk-navbar-container uk-margin" uk-navbar>
+		<div class="uk-navbar-left">
+			<!--                <img class="uk-width-expand" src="assets/pictures/logo.jpg">-->
+			<a class="uk-navbar-item uk-logo" href="#">Logo</a>
+			<ul class="uk-navbar-nav">
+				<li class="uk-active"><a href="#"> <span
+						class="uk-icon uk-margin-small-right" uk-icon="icon: home"></span>
+						Accueil
+				</a></li>
+				<li><a href="#"> <span
+						class="uk-icon uk-margin-small-right" uk-icon="icon: mail"></span>
+						Contact
+				</a></li>
+				<li><a href="#"> <span
+						class="uk-icon uk-margin-small-right" uk-icon="icon: file-edit"></span>
+						Conventions
+				</a></li>
+			</ul>
+		</div>
+		<div class="uk-navbar-right">
+			<ul class="uk-navbar-nav">
+				<li><a href="#" class="uk-padding"><span
+						uk-icon="icon: user"></span><span class="uk-padding-small">Albert</span></a>
+					<div class="uk-navbar-dropdown">
+						<ul class="uk-nav uk-navbar-dropdown-nav">
+							<li><a href="#"><span uk-icon="icon: cog"
+									class="uk-padding-small"></span>Paramètres</a></li>
+							<li><a href="#"><span uk-icon="icon: sign-out"
+									class="uk-padding-small"></span>Déconnexion</a></li>
+						</ul>
+					</div></li>
+			</ul>
+		</div>
+	</nav>
+	<main class="uk-container">
+	<div class="uk-grid-item-match uk-child-width-expand@s" uk-grid>
+		<form class="uk-width-2-3 uk-padding uk-background-muted">
+			<fieldset class="uk-fieldset">
+				<legend class="uk-legend">
+					<span class="uk-margin-small-right" uk-icon="icon: grid"></span>Informations
+					a valider
+				</legend>
+				<div class="uk-margin">
+					<div class="uk-margin">
+						<label class="uk-form-label" for="form-label-name">Nom : </label>
+						<input class="uk-input" name="textarea_nom" rows="1" cols="10"
+							style="min-width: 100%; line-height: 38px; max-height: 40px; min-height: 40px"
+							value="Camu" disabled> <label class="uk-form-label"
+							for="form-label-name">Prenom : </label> <input class="uk-input"
+							name="textarea_prenom" rows="1" cols="10"
+							style="min-width: 100%; line-height: 38px; max-height: 40px; min-height: 40px"
+							value="Albert" disabled> <label class="uk-form-label"
+							for="form-label-name">Option : </label> <input class="uk-input"
+							name="textarea_nom" rows="1" cols="10"
+							style="min-width: 100%; line-height: 38px; max-height: 40px; min-height: 40px"
+							value="Slam" ; disabled> <label class="uk-form-label"
+							for="form-label-name">Promotion : </label> <input
+							class="uk-input" name="textarea_nom" rows="1" cols="10"
+							style="min-width: 100%; line-height: 38px; max-height: 40px; min-height: 40px"
+							value="2017-2019" ; disabled>
+					</div>
+					<hr>
+					<div class="uk-margin">
+						<label class="uk-form-label" for="form-label-name">Adresse
+							mail : </label>
+						<textarea class="uk-input" name="textarea_prenom" rows="1"
+							cols="30"
+							style="min-width: 100%; max-width: 100%; max-height: 40px; min-height: 40px">Albert.camu@sio.fr</textarea>
+
+						<ul class="uk-subnav">
+							<li><label class="uk-form-label" for="form-label-name"
+								style="color: #333">Adresse postal : </label> <label
+								class="uk-form-label" for="form-label-name">Rue :</label> <textarea
+									class="uk-input" name="textarea_prenom" rows="1" cols="30"
+									style="min-width: 25%; max-width: 25%; max-height: 40px; min-height: 40px">52 rue des flaques</textarea>
+								<label class="uk-form-label" for="form-label-name">Code
+									postal : </label> <textarea class="uk-input" name="textarea_prenom"
+									rows="1" cols="5"
+									style="min-width: 25%; max-width: 25%; max-height: 40px; min-height: 40px">86000</textarea>
+								<label class="uk-form-label" for="form-label-name">Ville
+									: </label> <textarea class="uk-input" name="textarea_prenom" rows="1"
+									cols="10"
+									style="min-width: 25%; max-width: 25%; max-height: 40px; min-height: 40px">Poitiers</textarea>
+							</li>
+						</ul>
+						<label class="uk-form-label" for="form-label-name">Telephone
+							:</label>
+						<textarea class="uk-input" name="textarea_prenom" rows="1"
+							cols="30"
+							style="min-width: 100%; max-width: 100%; max-height: 40px; min-height: 40px">07 20 50 60 40</textarea>
+					</div>
+					<hr>
+					<div class="uk-margin">
+
+						<button class="uk-button uk-button-default" type="button"
+							name="button"
+							style="min-width: 40%; max-width: 40%; max-height: 40px; min-height: 40px">Modifier</button>
+						<button class="uk-button uk-button-default" type="button"
+							name="button"
+							style="min-width: 40%; max-width: 40%; max-height: 40px; min-height: 40px">Supprimer</button>
+
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	</main>
+	<script src="{{ asset('js/jquery-3.1.0.min.js') }}"></script>
+	<script src="{{ asset('js/uikit.min.js') }}"></script>
+	<script src="{{ asset('js/uikit-icons.min.js') }}"></script>
+</body>
+</html>

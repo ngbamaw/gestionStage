@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr"  style="background-color: #606060;">
+    <head>
+        <meta charset="UTF-8">
+        <title>Acceuil | Gestion Stages</title>
+        <link rel="stylesheet" type="text/css" href="{{asset ('css/uikit.min.css')}}" />
+    </head>
+    <body>
+        <nav class="uk-navbar-container uk-margin" uk-navbar>
+            <div class="uk-navbar-left">
+<!--                <img class="uk-width-expand" src="assets/pictures/logo.jpg">-->
+                <a class="uk-navbar-item uk-logo" href="#">Logo</a>
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="#">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: home"></span>
+                            Accueil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: mail"></span>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="#" class="uk-padding"><span uk-icon="icon: user"></span><span class="uk-padding-small">Albert</span></a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li><a href="#"><span uk-icon="icon: cog" class="uk-padding-small"></span>Paramètres</a></li>
+                                <li><a href="#"><span uk-icon="icon: sign-out" class="uk-padding-small"></span>Déconnexion</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main class="uk-container">
+          <div class="uk-grid-item-match uk-child-width-expand@s" uk-grid>
+            <form class="uk-width-3-3 uk-padding uk-background-muted">
+                <fieldset class="uk-fieldset">
+                    <legend class="uk-legend"><p style="float:right"> Fiche Information Entreprise </p></legend>
+                    <div class="uk-margin uk-overflow-auto">
+                    <ul class="uk-list uk-list-striped">
+                      	<li><h4>Entreprise</h4></h1></li>
+                      	{%  if enterprise.category=='1' %}
+	                        <li><span  class="uk-margin-small-right" uk-icon="icon: info"></span> Spécialité - SLAM</li>
+    					{%  elseif enterprise.category=='2' %}
+							<li><span  class="uk-margin-small-right" uk-icon="icon: info"></span> Spécialité - SISR</li>    					
+    					{%  endif %}
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: tag"></span>Nom - {{ enterprise.name }}</li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: location"></span> Adresse - {{ enterprise.address }}</li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: location"></span> Ville - {{ enterprise.town}} - {{ enterprise.postal_code }} </li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: receiver"></span> Contact - {{ enterprise.phone_number }}</li>
+                      </ul>
+                      <ul class="uk-list uk-list-striped">
+                      	<li><h4>Tuteur</h4></h1></li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: user"></span> Nom - {{ tuteur.firstname }}</li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: user"></span> Prenom - {{ tuteur.lastname }}</li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: receiver"></span> Numero de Telephone - {{ tuteur.phone_number }}</li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: mail"></span> Adresse mail - <a href="mailto:{{ tuteur.mail }}">{{ tuteur.mail }}</a></li>
+                      </ul>
+                      <hr>
+                      <div class="uk-margin" style="float:right">
+                        <a href="/professeur/supprim_entreprise?id={{enterprise.id}}" class="uk-button uk-button-danger" ><span  class="uk-margin-small-right" uk-icon="icon:  trash"></span> Supprimer l'entreprise</a>
+                      </div>
+                    </div>
+                </fieldset>
+            </form>
+          </div>
+        </main>
+        <script src="{{asset ('js/jquery-3.1.0.min.js')}}"></script>
+        <script src="{{asset ('js/uikit.min.js')}}"></script>
+        <script src="{{asset ('js/uikit-icons.min.js')}}"></script>
+    </body>
+</html>

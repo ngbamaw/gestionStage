@@ -1,0 +1,35 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    encoders:
+        app_encoder:
+            id: 'app.password_encoder'
+
+    providers:
+        user:
+            id: AppBundle\Security\User\UserProvider
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            form_login:
+                login_path: connexion
+                check_path: connexion
+            logout:
+                path: app_logout
+                success_handler: 'app.logout_handler'
+            logout_on_user_change: true
+            access_denied_handler: AppBundle\Security\AccessDeniedHandler
+            # activate different ways to authenticate
+
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            #http_basic: ~
+
+            # https://symfony.com/doc/current/security/form_login_setup.html
+            #form_login: ~

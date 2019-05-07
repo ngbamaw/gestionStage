@@ -1,0 +1,112 @@
+{% extends 'container/index.html.twig' %}
+{% block menu_prof %}
+<li>
+	<a href="/professeur/convention">
+		<span class="uk-icon uk-margin-small-right" uk-icon="icon: file-edit"></span>
+		Conventions
+	</a>
+</li>
+{% endblock %}
+{% block search %}
+{#affichage des promotion pour les recherches#}
+<form action="#" >
+<div class="uk-margin">
+	<label class="uk-form-label" for="form-label-name"> Promotions:
+	</label>
+	<select id="form-label-name" name="promo" class="uk-select">
+		{% for promotion in promotions %}
+		<option>{{ promotion.year }}-{{ promotion.year+2 }}</option>
+		{% endfor %}
+	</select>
+</div>
+<div class="uk-margin">
+	<button id="btn_search" class="uk-button uk-button-default"
+		type="submit">Rechercher</button>
+</div>
+</form>
+{% endblock %}
+
+{% block content %}
+<legend class="uk-legend">
+	<span class="uk-margin-small-right" uk-icon="icon: grid"></span>
+	Liste des élèves
+</legend>
+<div class="uk-margin">
+{# Onglets choix spécialité pour une promo #}
+	<ul class="uk-subnav uk-subnav-pill" uk-switcher>
+		<li>
+			<a href="#">SLAM</a>
+		</li>
+		<li>
+			<a href="#">SISR</a>
+		</li>
+	</ul>
+	{#Gestion de l'affichages des élèves#}
+	<ul class="uk-switcher uk-margin">
+		<div class="uk-margin">
+			<ul class="uk-list uk-list-divider">
+				{% for student in students %}
+				    {% if student.getIdOption() == '1' %}
+        				<li>
+        					<a href="#" class="uk-link-muted">
+        						<span class="uk-text-success">■</span>
+        						{{ student.lastname }}
+        						{{ student.firstname }}
+        					</a>
+
+                                {% for internship in internships %}
+            						{% if student.id == internship.id_student %}
+            						    {% if internship.date_fin < date %}
+            						    Pas de stage
+            						    {% else %}
+            						    	<a href="professeur/info_stage_conv?id={{student.id}}" class="uk-link-muted">   
+                						    {% if internship.convention =='0' %}
+                						    	Convention à faire
+                						    {% else %}
+                						    	Convention faite	
+                						    {% endif %}
+                						    </a>
+                						{% endif %}    
+            						{% endif %}
+        						{% endfor %} 		
+        					
+        				</li>
+    				{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="uk-margin">
+			<ul class="uk-list uk-list-divider">
+				{% for student in students %}
+				{% if student.getIdOption() == '2' %}
+				<li>
+        					<a href="#" class="uk-link-muted">
+        						<span class="uk-text-success">■</span>
+        						{{ student.lastname }}
+        						{{ student.firstname }}
+        					</a>
+
+                                {% for internship in internships %}
+            						{% if student.id == internship.id_student %}
+            						    {% if internship.date_fin < date %}
+            						    Pas de stage
+            						    {% else %}
+            						    	<a href="professeur/info_stage_conv?id={{student.id}}" class="uk-link-muted">   
+                						    {% if internship.convention =='0' %}
+                						    	Convention à faire
+                						    {% else %}
+                						    	Convention faite	
+                						    {% endif %}
+                						    </a>
+                						{% endif %}    
+            						{% endif %}
+        						{% endfor %} 		
+        					
+        				</li>
+				{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	</ul>
+</div>
+{% endblock %}

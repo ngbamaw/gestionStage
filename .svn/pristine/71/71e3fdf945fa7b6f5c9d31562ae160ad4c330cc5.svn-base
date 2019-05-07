@@ -1,0 +1,49 @@
+{% extends 'container/menu.html.twig' %}
+{% block title %}
+Contact | Gestion Stages
+{% endblock %}
+{% block container %}
+<main class="uk-container">
+<div class="uk-grid-item-match uk-child-width-expand@s" uk-grid>
+	<form class="uk-width-1-3 uk-padding uk-background-secondary uk-light">
+		<fieldset class="uk-fieldset">
+			<legend class="uk-legend">
+				<span class="uk-margin-small-right" uk-icon="icon: search"></span>Contacts
+			</legend>
+			<ul class="uk-tab-left"
+				uk-tab="connect: #component-tab-left; animation: uk-animation-fade">
+				<li><a href="#">Professeurs</a></li>
+				<li><a href="#">Chef de Travaux</a></li>
+				<li><a href="#">Tuteurs</a></li>
+			</ul>
+			<!-- <div class="uk-width-expand@m">
+        <ul id="component-tab-left" class="uk-switcher">
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+            <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+            <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.</li>
+        </ul>
+    </div> -->
+		</fieldset>
+	</form>
+	<form id="component-tab-left"
+		class="uk-width-2-3 uk-padding uk-background-muted uk-switcher">
+		<fieldset class="uk-fieldset">
+			<legend class="uk-legend">
+				<span class="uk-margin-small-right" uk-icon="icon: grid"></span>Liste
+				des contacts
+			</legend>
+			<div id="component-tab-left" class="uk-switcher">
+				<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+					sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+				<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco
+					laboris nisi ut aliquip ex ea commodo consequat.</li>
+				<li>Duis aute irure dolor in reprehenderit in voluptate velit
+					esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.</li>
+				<li>Duis aute irure dolor in reprehenderit in voluptate velit
+					esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.</li>
+			</div>
+		</fieldset>
+	</form>
+</div>
+</main>
+{% endblock %}

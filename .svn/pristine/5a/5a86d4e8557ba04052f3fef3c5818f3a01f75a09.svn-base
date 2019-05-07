@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr" style="background-color: #606060;">
+<head>
+<meta charset="UTF-8">
+<title>Conventions</title>
+<link rel="stylesheet" type="text/css"
+	href="{{asset ('css/uikit.min.css')}}" />
+<link rel="stylesheet" type="text/css"
+	href="{{asset ('css/style.css')}}" />
+</head>
+<body>
+	<nav class="uk-navbar-container uk-margin" uk-navbar>
+		<div class="uk-navbar-left">
+			<!--                <img class="uk-width-expand" src="assets/pictures/logo.jpg">-->
+			<a class="uk-navbar-item uk-logo" href="#">Logo</a>
+			<ul class="uk-navbar-nav">
+				<li class="uk-active"><a href="#"> <span
+						class="uk-icon uk-margin-small-right" uk-icon="icon: home"></span>
+						Accueil
+				</a></li>
+				<li><a href="#"> <span
+						class="uk-icon uk-margin-small-right" uk-icon="icon: mail"></span>
+						Contact
+				</a></li>
+				<li><a href="#"> <span
+						class="uk-icon uk-margin-small-right" uk-icon="icon: file-edit"></span>
+						Conventions
+				</a></li>
+				<li><a href="#"> <span
+						class="uk-icon uk-margin-small-right" uk-icon="icon: users"></span>
+						Eleves
+				</a></li>
+			</ul>
+		</div>
+		<div class="uk-navbar-right">
+			<span class="uk-icon uk-margin-small-right" uk-icon="icon: warning"></span>
+			<ul class="uk-navbar-nav">
+				<li><a href="#" class="uk-padding"><span
+						uk-icon="icon: user"></span><span class="uk-padding-small">Albert</span></a>
+					<div class="uk-navbar-dropdown">
+						<ul class="uk-nav uk-navbar-dropdown-nav">
+							<li><a href="#"><span uk-icon="icon: cog"
+									class="uk-padding-small"></span>Paramètres</a></li>
+							<li><a href="#"><span uk-icon="icon: sign-out"
+									class="uk-padding-small"></span>Déconnexion</a></li>
+						</ul>
+					</div></li>
+			</ul>
+		</div>
+	</nav>
+	<main class="uk-container">
+	<div class="uk-grid-item-match uk-child-width-expand@s" uk-grid>
+		<form class="uk-width-1-3 uk-padding uk-background-secondary uk-light">
+			<fieldset class="uk-fieldset">
+				<legend class="uk-legend">
+					<span class="uk-margin-small-right" uk-icon="icon: search"></span>Rechercher
+				</legend>
+				<div class="uk-margin">
+					<label class="uk-form-label" for="form-label-name">Promotions:
+					</label> <select id="form-label-name" class="uk-select">
+						<option>2015-2017</option>
+						<option>2016-2018</option>
+						<option>2017-2019</option>
+						<option>2018-2020</option>
+						<option>2019-2021</option>
+					</select>
+				</div>
+				<hr>
+				<div class="uk-margin">
+					<label class="uk-form-label" for="form-label-name">Eleves
+						par option: </label> <select id="form-label-name" class="uk-select">
+						<option>Développement</option>
+						<option>Réseau</option>
+					</select>
+				</div>
+				<div class="uk-margin">
+					<button class="uk-button uk-button-default" type="button"
+						name="button">Rechercher</button>
+				</div>
+			</fieldset>
+		</form>
+		<form class="uk-width-2-3 uk-padding uk-background-muted">
+			<fieldset class="uk-fieldset">
+				<legend class="uk-legend">
+					<span class="uk-margin-small-right" uk-icon="icon: grid"></span>Conventions
+				</legend>
+				<div class="uk-margin">
+					<ul class="uk-subnav uk-subnav-pill" uk-switcher>
+						<li><a href="#">SLAM</a></li>
+						<li><a href="#">SISR</a></li>
+					</ul>
+					<ul class="uk-switcher uk-margin">
+						<div class="uk-margin">
+							<ul class="uk-list uk-list-divider">
+								<li><a class="eleve" href="#">Josh Duhamel - 1ere année
+										- Entreprise1 </a>
+								<button class="uk-button uk-button-secondary">CONVENTION
+										A GÉNÉRER</button>
+									<button class="uk-button uk-button-default" disabled>
+										<span uk-icon="icon: download">
+									</button></li>
+								<li><a class="eleve" href="#"> Kaplan Henish - 1ere
+										année - Entreprise2 </a>
+								<button class="uk-button uk-button-secondary">CONVENTION
+										A GÉNÉRER</button>
+									<button class="uk-button uk-button-default" disabled>
+										<span uk-icon="icon: download">
+									</button></li>
+								<li><a class="eleve" href="#">Gordon Ramsay - 1ere
+										année - Entreprise3</a>
+								<button class="uk-button uk-button-primary">CONVENTION
+										VALIDE</button>
+									<button class="uk-button uk-button-default">
+										<span uk-icon="icon: download">
+									</button></li>
+								<li><a class="eleve" href="#">Charlie Chaplin - 1ere
+										année - Entreprise4 </a>
+								<button class="uk-button uk-button-primary">CONVENTION
+										VALIDE</button>
+									<button class="uk-button uk-button-default">
+										<span uk-icon="icon: download">
+									</button></li>
+							</ul>
+						</div>
+						<div class="uk-margin">
+							<ul class="uk-list uk-list-divider">
+								<li><a class="eleve" href="#">Garcia Rodrigez - 2eme
+										année</a>
+								<button class="uk-button uk-button-primary">CONVENTION
+										VALIDE</button>
+									<button class="uk-button uk-button-default">
+										<span uk-icon="icon: download">
+									</button></li>
+								<li><a class="eleve" href="#">Olaf le Grand - 2eme
+										année</a>
+								<button class="uk-button uk-button-primary">CONVENTION
+										VALIDE</button>
+									<button class="uk-button uk-button-default">
+										<span uk-icon="icon: download">
+									</button></li>
+							</ul>
+						</div>
+					</ul>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	</main>
+	<script src="{{asset ('js/jquery-3.1.0.min.js')}}"></script>
+	<script src="{{asset ('js/uikit.min.js')}}"></script>
+	<script src="{{asset ('js/uikit-icons.min.js')}}"></script>
+</body>
+</html>

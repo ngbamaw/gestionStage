@@ -1,0 +1,39 @@
+{% extends 'container/index.html.twig' %}
+{% block search %}
+	<form method="get" action="/eleve">
+		<div class="uk-margin">
+        <input class="uk-input" type="text" name="search" placeholder="Entrez votre recherche.">
+    </div>
+    <hr>
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-label-name">Rechercher par ville: </label>
+        <select id="form-label-name" name="ville" class="uk-select">
+					{% for company in companies %}
+						<option>{{company.town}}</option>
+					{% endfor %}
+        </select>
+    </div>
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-label-name">Rechercher par catégorie: </label>
+				  <select id="form-label-name" name="option" class="uk-select">
+						{% for opt in options %}
+							<option>{{opt.wording}}</option>
+						{% endfor %}>
+        </select>
+    </div>
+    <div class="uk-margin">
+      <button class="uk-button uk-button-default" type="submit">Rechercher</button>
+    </div>
+	</form>
+{% endblock %}
+{% block content %}
+    <legend class="uk-legend"><span class="uk-margin-small-right" uk-icon="icon: grid"></span>Liste des entreprises</legend>
+    <div class="uk-margin uk-overflow-auto">
+      <ul class="uk-list uk-list-divider">
+				{% for company in companies%}
+					<li><a href="info_entreprise?id={{company.id}}">{{company.name}}</a></li>
+				{% endfor %}
+
+      </ul>
+    </div>
+{% endblock %}

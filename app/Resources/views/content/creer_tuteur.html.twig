@@ -1,0 +1,68 @@
+{% extends 'template_loader.html.twig' %}
+	{% block title %}
+        Ajout tuteur | Gestion Stages
+    {% endblock %}
+	{% block script_head %}
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+    {% endblock %}
+	{% block body_class %}
+        uk-margin-large
+    {% endblock %}
+	{% block body %}
+        <header class="uk-container uk-margin-large-top uk-text-center">
+            <h1>Ajout tuteur</h1>
+        </header>
+        <nav></nav>
+        <main class="uk-height-1-1">
+            <div class="uk-margin-medium-top uk-align-center" style="width: 250px;">
+                <form id="foljt-login-form" method="post" action="creer_tuteur/traitement"
+                      enctype="application/x-www-form-urlencoded"
+                      class="uk-text-center uk-padding-small">
+                    {%
+                            set list_proprieties = [
+
+                            {icon:"user", placeholder: "Nom", type:"text", name:"last-name", addclass:""},
+
+                            {icon:"user", placeholder: "Prénom", type:"text", name:"first-name", addclass:""},
+
+                            {icon:"mail", placeholder: "Téléphone", type:"tel", name:"tel", addclass:""},
+
+                            {icon:"mail", placeholder: "Adresse mail", type:"text", name:"mail", addclass:""},
+
+                            {icon:"user", placeholder: "Fonction", type:"text", name:"function", addclass:""}
+                        ]
+                    %}
+
+                    <select class="uk-select" name="company">
+                        {% for company in companies %}
+                            <option>{{company.name}}</option>
+                        {% endfor %}
+                    </select>
+
+
+                    {% for proprieties in list_proprieties %}
+                        <div class="uk-margin">
+                            <div class="uk-inline">
+                                <span class="uk-form-icon {{ proprieties.addclass }}" uk-icon="icon: {{ proprieties.icon }}"></span>
+                                <input id="{{ proprieties.name }}"
+                                       class="uk-input"
+                                       placeholder="{{ proprieties.placeholder }}"
+                                       type="{{ proprieties.type }}"
+                                       name="{{ proprieties.name }}" required>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="uk-margin">
+                        <button type="submit"
+                                class="uk-width-1-1 uk-button uk-button-primary uk-button-large">
+                            AJOUTER
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    {% endblock %}
+{% block javascript %}
+<script src={{ asset('js/submit_register.js') }}></script>
+{% endblock %}

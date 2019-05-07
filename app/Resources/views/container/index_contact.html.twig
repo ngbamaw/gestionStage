@@ -1,0 +1,42 @@
+{% extends 'template_loader.html.twig' %}
+{% block body %}
+<nav class="uk-navbar-container uk-margin" uk-navbar>
+	<div class="uk-navbar-left">
+		<!--                <img class="uk-width-expand" src="assets/pictures/logo.jpg">-->
+		<a class="uk-navbar-item uk-logo" href="#">Logo</a>
+		<ul class="uk-navbar-nav">
+			<li class="uk-active">
+				<a href="#"> <span
+					class="uk-icon uk-margin-small-right" uk-icon="icon: home"></span>
+					Accueil
+				</a>
+			</li>
+			<li>
+				<a href="#"> <span class="uk-icon uk-margin-small-right"
+					uk-icon="icon: mail"></span> Contact
+				</a>
+			</li>
+			{% block menu_prof %}
+			{% endblock %}
+		</ul>
+	</div>
+	<div class="uk-navbar-right">
+		{% block warning_prof %}
+		{% endblock %}
+		<ul class="uk-navbar-nav">
+			<li><a href="#" class="uk-padding"><span
+					uk-icon="icon: user"></span><span class="uk-padding-small">Albert</span></a>
+				<div class="uk-navbar-dropdown">
+					<ul class="uk-nav uk-navbar-dropdown-nav">
+						<li><a href="#"><span uk-icon="icon: cog"
+								class="uk-padding-small"></span>Paramètres</a></li>
+						<li><a href="#"><span uk-icon="icon: sign-out"
+								class="uk-padding-small"></span>Déconnexion</a></li>
+					</ul>
+				</div></li>
+		</ul>
+	</div>
+</nav>
+{% block container %}
+{% endblock %}
+{% endblock %}

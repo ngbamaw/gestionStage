@@ -1,0 +1,49 @@
+{% extends 'container/menu.html.twig' %}
+{% block style_html %}
+background-color: #606060
+{% endblock %}
+{% block title %}
+Acceuil | Gestion Stages
+{% endblock %}
+{% block container %}
+<main class="uk-container">
+<div class="uk-grid-item-match uk-child-width-expand@s" uk-grid>
+	<fieldset class="uk-width-3-3 uk-padding uk-background-secondary uk-light">
+			<!-- --------ELEVES EN ATTENTE DE VALIDATION---------- -->
+		<fieldset class="uk-fieldset">
+			<legend class="uk-legend">
+				<span class="uk-margin-small-right" uk-icon="icon: user"></span>&Eacute;l&egrave;ves à valider
+			</legend>
+			<ul class="uk-tab-left">
+				{% for eleve in eleves_a_valider %}
+					<li><a href="{{ path('validation-etudiant', {'id': eleve.id, 'user_type': 'etudiant' }) }}" target="_blank"> {{ eleve.lastname }} {{ eleve.firstname }}</a>
+				{% endfor %}
+			</ul>
+		</fieldset>
+		<!-- --------PROFS ---------- -->
+		<fieldset class="uk-fieldset">
+			<legend class="uk-legend">
+				<span class="uk-margin-small-right" uk-icon="icon: user"></span>Professeurs
+			</legend>
+			<ul class="uk-tab-left">
+				{% for prof in profs %}
+					<li><a href="{{ path('modification-professeur', {'id': prof.id, 'user_type': 'professeur' }) }}" target="_blank">{{ prof.lastname }} {{ prof.firstname }}</a>
+				{% endfor %}
+			</ul>
+		</fieldset>
+		<!-- --------ELEVES ---------- -->
+		<fieldset class="uk-fieldset">
+			<legend class="uk-legend">
+				<span class="uk-margin-small-right" uk-icon="icon: user"></span>&Eacute;l&egrave;ves
+			</legend>
+			<ul class="uk-tab-left">
+				{% for eleve in eleves %}
+					<li><a href="{{ path('modification-etudiant', {'id': eleve.id, 'user_type': 'etudiant' }) }}" target="_blank"> {{ eleve.lastname }} {{ eleve.firstname }}</a>
+				{% endfor %}
+			</ul>
+		</fieldset>
+		
+	</fieldset>
+</div>
+</main>
+{% endblock %}

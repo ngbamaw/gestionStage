@@ -1,0 +1,79 @@
+{% extends 'container/menu.html.twig' %}
+{% block style_html %}
+    background-color: #606060
+{% endblock %}
+{% block title %}
+    Acceuil | Gestion Stages
+{% endblock %}
+{% block container %}
+    <main class="uk-container">
+        <div class="uk-grid-item-match uk-child-width-expand@s"
+             uk-grid>
+            <form class="uk-width-3-3 uk-padding uk-background-muted">
+                <fieldset class="uk-fieldset">
+                    <legend class="uk-legend"><p style="float:right"> Fiche Information Entreprise </p></legend>
+                    <div class="uk-margin uk-overflow-auto">
+                        <ul class="uk-list uk-list-striped">
+                            <li><h4>Entreprise</h4></li>
+                            {% if enterprise.category=='1' %}
+                                <li>
+                                    <span class="uk-margin-small-right"
+                                          uk-icon="icon: info">
+                                    </span>
+                                    Spécialité - SLAM
+                                </li>
+                            {% elseif enterprise.category=='2' %}
+                                <li>
+                                    <span class="uk-margin-small-right"
+                                          uk-icon="icon: info">
+                                    </span>
+                                    Spécialité - SISR
+                                </li>
+                            {% endif %}
+                            <li>
+                                <span class="uk-margin-small-right"
+                                      uk-icon="icon: tag"></span>
+                                Nom - {{ enterprise.name }}</li>
+                            <li>
+                                <span class="uk-margin-small-right"
+                                      uk-icon="icon: location"></span>
+                                Adresse - {{ enterprise.address }}</li>
+                            <li>
+                                <span class="uk-margin-small-right"
+                                      uk-icon="icon: location"></span>
+                                Ville - {{ enterprise.town }} - {{ enterprise.postal_code }} </li>
+                            <li>
+                                <span class="uk-margin-small-right"
+                                      uk-icon="icon: receiver"></span>
+                                Contact - {{ enterprise.phone_number }}</li>
+                        </ul>
+                        <h4>Tuteurs</h4>
+                        {% for tut in tuteur %}
+                            <ul class="uk-list uk-list-striped">
+                                <li>
+                                    <span class="uk-margin-small-right"
+                                          uk-icon="icon: user"></span>
+                                    Prenom - {{ tut.firstname }}</li>
+                                <li>
+                                    <span class="uk-margin-small-right"
+                                          uk-icon="icon: user"></span>
+                                    Nom - {{ tut.lastname }}</li>
+                                <li>
+                                    <span class="uk-margin-small-right"
+                                          uk-icon="icon: receiver"></span>
+                                    Numero de Telephone - {{ tut.phone_number }}</li>
+                                <li>
+                                    <span class="uk-margin-small-right"
+                                          uk-icon="icon: mail"></span>
+                                    Adresse mail -
+                                    <a href="mailto:{{ tut.mail }}">{{ tut.mail }}</a>
+                                </li>
+                            </ul>
+                        {% endfor %}
+                        <hr>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </main>
+{% endblock %}

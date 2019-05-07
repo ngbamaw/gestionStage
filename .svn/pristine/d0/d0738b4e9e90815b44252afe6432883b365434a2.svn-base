@@ -1,0 +1,145 @@
+{% extends 'template_loader.html.twig' %}
+
+{% block title %}
+    Modifier compte | Gestion Stages
+{% endblock %}
+
+{% block body_class %}
+    uk-margin-large
+{% endblock %}
+
+{% block body %}
+    <header class="uk-container uk-margin-large-top uk-text-center">
+        <h1>Modifier compte</h1>
+    </header>
+    <nav></nav>
+    <main class="uk-height-1-1">
+        <div class="uk-margin-medium-top uk-align-center"
+             style="width: 250px;">
+            {% for message in app.flashes('error') %}
+                <div class="flash-error">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            {{ form_errors(form) }}
+            {{ form_start(form, {'attr': {'class' : 'uk-text-center uk-padding-small'}}) }}
+            {{ form_widget(form.idOption) }}
+            <div class="uk-margin">
+                {{ form_widget(form.idPromotion) }}
+            </div>
+            <div class="uk-margin">
+                <div class="uk-inline">
+                    <span
+                            class="uk-form-icon"
+                            uk-icon="icon: user">
+                    </span>
+                    {{ form_widget(form.lastname) }}
+                </div>
+
+            </div>
+            <div class="uk-margin">
+                <div class="uk-inline">
+                                    <span
+                                            class="uk-form-icon"
+                                            uk-icon="icon: user">
+                                    </span>
+                    {{ form_widget(form.firstname) }}
+                </div>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-inline">
+                                    <span
+                                            class="uk-form-icon"
+                                            uk-icon="icon: home">
+                                    </span>
+                    {{ form_widget(form.address) }}
+                </div>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-inline">
+                                    <span
+                                            class="uk-form-icon"
+                                            uk-icon="icon: home">
+                                    </span>
+                    {{ form_widget(form.postalCode) }}
+                </div>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-inline">
+                                    <span
+                                            class="uk-form-icon"
+                                            uk-icon="icon: lock">
+                                    </span>
+                    {{ form_widget(form.town) }}
+                </div>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-inline">
+                                    <span
+                                            class="uk-form-icon"
+                                            uk-icon="icon: unlock">
+                                    </span>
+                    {{ form_widget(form.birthdate) }}
+                </div>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-inline">
+                                    <span
+                                            class="uk-form-icon"
+                                            uk-icon="icon: phone">
+                                    </span>
+                    {{ form_widget(form.phoneNumber) }}
+                </div>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-inline">
+                                    <span
+                                            class="uk-form-icon"
+                                            uk-icon="icon: mail">
+                                    </span>
+                    {{ form_widget(form.mail) }}
+                </div>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-inline">
+                    <span
+                            class="uk-form-icon"
+                            uk-icon="icon: user">
+                    </span>
+                    {{ form_widget(form.plainPassword.first) }}
+                </div>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-inline">
+                    <span
+                            class="uk-form-icon"
+                            uk-icon="icon: user">
+                    </span>
+                    {{ form_widget(form.plainPassword.second) }}
+                </div>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-inline">
+                <span
+                        class="uk-form-icon"
+                        uk-icon="icon: user">
+                </span>
+                    <input class="uk-input"
+                           placeholder="Mot de passe Admin"
+                           type="password"
+                           name="password-admin"
+                           value=""
+                           required="">
+                </div>
+            </div>
+
+
+            <div class="uk-margin">
+                <button type="submit"
+                        class="uk-width-1-1 uk-button uk-button-primary uk-button-large">MODIFIER
+                </button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </main>
+{% endblock %}

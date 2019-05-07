@@ -1,0 +1,45 @@
+{% extends 'container/menu.html.twig' %}
+{% block style_html %}
+background-color: #606060
+{% endblock %}
+{% block title %}
+Acceuil | Gestion Stages
+{% endblock %}
+{% block menu_prof %}
+    <li>
+        <a href="#">
+            <span class="uk-icon uk-margin-small-right" uk-icon="icon: file-edit"></span>
+            Conventions
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <span class="uk-icon uk-margin-small-right" uk-icon="icon: users"></span>
+            Eleves
+        </a>
+    </li>
+    {% endblock %}
+     {% block container %}
+        <main class="uk-container">
+          <div class="uk-grid-item-match uk-child-width-expand@s" uk-grid>
+            <form class="uk-width-3-3 uk-padding uk-background-muted">
+                <fieldset class="uk-fieldset">
+                    <legend class="uk-legend"><p style="float:right"> {{ contact.lastname }} {{ contact.firstname }} </p></legend>
+                    <div class="uk-margin uk-overflow-auto">
+                      <ul class="uk-list uk-list-divider">
+                    {% if contact.adresse is defined %}
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: location"></span>{{ contact.adresse }}</li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: location"></span>{{ contact.codePost }} - {{ contact.town }}</li>
+                    {% endif %}
+                        
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: receiver"></span>Contact - {{ contact.phoneNumber }}</li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: user"></span><a href="#">{{ contact.mail }}</a>
+                      </ul>
+                      <hr>
+                     </div>
+                </fieldset>
+            </form>
+          </div>
+        </main>
+      {% endblock %}
+       

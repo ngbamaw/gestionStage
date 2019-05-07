@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr"  style="background-color: #606060;">
+    <head>
+        <meta charset="UTF-8">
+        <title>Acceuil | Gestion Stages</title>
+        <link rel="stylesheet" type="text/css" href="{{asset ('css/uikit.min.css')}}" />
+    </head>
+    <body>
+        <nav class="uk-navbar-container uk-margin" uk-navbar>
+            <div class="uk-navbar-left">
+<!--                <img class="uk-width-expand" src="assets/pictures/logo.jpg">-->
+                <a class="uk-navbar-item uk-logo" href="#">Logo</a>
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="#">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: home"></span>
+                            Accueil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: mail"></span>
+                            Contact
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: file-edit"></span>
+                            Conventions
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="#" class="uk-padding"><span uk-icon="icon: user"></span><span class="uk-padding-small">Albert</span></a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li><a href="#"><span uk-icon="icon: cog" class="uk-padding-small"></span>Paramètres</a></li>
+                                <li><a href="#"><span uk-icon="icon: sign-out" class="uk-padding-small"></span>Déconnexion</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main class="uk-container">
+          <div class="uk-grid-item-match uk-child-width-expand@s" uk-grid>
+            <form class="uk-width-3-3 uk-padding uk-background-muted" method='post' action='{{ path('traite_convention') }}'>
+                <fieldset class="uk-fieldset">
+                    <legend class="uk-legend"><p style="float:right"> Fiche Information Stage </p></legend>
+                    <div class="uk-margin uk-overflow-auto">
+                     <ul class="uk-list uk-list-striped">
+                      	<li><h4>Informations Personnelles</h4></h1></li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: user"></span><label>Nom</label><input type='text' name='etu_lastname' value='{{ etu.lastname }}'></li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: user"></span><label>Prenom</label><input type='text' name='etu_firstname' value='{{ etu.firstname }}'></li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: location"></span><label>Adresse</label><input type='text' name='etu_adress' value='{{ etu.address }}'></li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: location"></span><label>Ville</label><input type='text' name='etu_town' value='{{ etu.town}}'> - <input type='text' name='etu_postal' value='{{ etu.postalCode }}'> </li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: receiver"></span><label>Téléphone</label><input type='text' name='etu_phone' value='{{ etu.phoneNumber }}'></li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: mail"></span><label>Mail</label><input type='text' name='etu_mail' value='{{ etu.mail }}'></li>
+                      </ul>
+                       <ul class="uk-list uk-list-striped">
+                      	<li><h4>Entreprise</h4></h1></li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: tag"></span> Nom - <input type='text' name='ent_name' value='{{ enterprise.name }}'></li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: location"></span> Adresse - <input type='text' name='ent_adress' value='{{ enterprise.address }}'></li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: location"></span> Ville - <input type='text' name='ent_town' value='{{ enterprise.town}}'> - <input type='text' name='ent_postal' value='{{ enterprise.postal_code }}'> </li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: receiver"></span> Contact - <input type='text' name='ent_phone' value='{{ enterprise.phone_number }}'></li>
+                      </ul>
+                      <ul class="uk-list uk-list-striped">
+                      	<li><h4>Tuteur</h4></h1></li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: user"></span> Nom - <input type='text' name='tut_lastname' value='{{ tuteur.firstname }}'></li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: user"></span> Prenom - <input type='text' name='tut_firstname' value='{{ tuteur.lastname }}'></li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: receiver"></span> Telephone - <input type='text' name='tut_phone' value='{{ tuteur.phone_number }}'></li>
+                        <li><span  class="uk-margin-small-right" uk-icon="icon: mail"></span> Adresse mail - <input type='text' name='tut_mail' value='{{ tuteur.mail }}'></a></li>
+                      </ul>
+                      <hr>
+                      <div class="uk-margin" style="float:right">
+                      	<input class="uk-button uk-button-primary" type='submit' value='Télécharger la convention'>
+                      </div>
+                    </div>
+                </fieldset>
+            </form>
+          </div>
+        </main>
+        <script src="{{asset ('js/jquery-3.1.0.min.js')}}"></script>
+        <script src="{{asset ('js/uikit.min.js')}}"></script>
+        <script src="{{asset ('js/uikit-icons.min.js')}}"></script>
+    </body>
+</html>
